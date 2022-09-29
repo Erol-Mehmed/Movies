@@ -33,10 +33,11 @@
 <style scoped>
 .footer {
     display: flex;
+    grid-area: footer;
     justify-content: space-evenly;
     align-items: center;
     height: 10vh;
-    background-color: #222831;
+    background-color: #472D2D;
 }
 
 .links {
@@ -44,4 +45,11 @@
     color: white;
     text-decoration: none;
 }
+
+.links:hover {
+    background-color: black;
+    border-radius: 5px;
+    padding: 1px;
+}
+
 </style>

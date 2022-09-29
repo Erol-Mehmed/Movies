@@ -22,7 +22,6 @@
 <script setup>
 import Footer from '../components/Footer.vue';
 
-const name = 'Erol';
 
 </script>
 
@@ -31,12 +30,18 @@ const name = 'Erol';
   <div class="html">
 
     <header class="header">
-      <h1>Welcome to our movies hub.</h1>
-      <h3>Here you can see other users favorite
-        movies and you can add your list as well.</h3>
+      <h1>Welcome to our movies hub</h1>
     </header>
 
     <body class="body">
+
+      <div class="bestRated">
+
+      </div>
+
+      <div class="worstRated">
+
+      </div>
 
     </body>
 
@@ -57,27 +62,38 @@ const name = 'Erol';
 
 .header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   grid-area: header;
   height: 13vh;
-  background-color: #222831;
-}
-
-.header h1 {
-  color: white;
-}
-.header h3 {
+  background-color: #472D2D;
   color: white;
 }
 
 .body {
   grid-area: body;
-  height: 80vh;
-  background-color: rgb(242, 238, 233);
+  height: 110vh;
+  background-color: #DCD7C9;
 }
 
-.footer {
-  grid-area: footer;
+.bestRated {
+  background-color: red;
+  width: 500px;
+  height: 50vh;
+  top: 10vh;
+  left: 400px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px;
+}
+
+.worstRated {
+  background-color: rgb(177, 146, 146);
+  width: 500px;
+  height: 50vh;
+  left: 700px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px;
 }
 </style>
