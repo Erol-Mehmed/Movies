@@ -1,8 +1,34 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-import { login, register } from '~/api/users'
+import { ref } from 'vue';
+import { login, register } from '../../api/users';
 
 export default {
   setup(props, context) {
+
+    const username = ref(null);
+    const password = ref(null);
+    const confirmPassword = ref(null);
     const checkAndRegister = async (username, password, confirmPassword) => {
       if (password !== confirmPassword) {
         alert('Passwords does not match!')
@@ -15,6 +41,9 @@ export default {
 
     return {
       checkAndRegister,
+      username,
+      password,
+      confirmPassword
     }
   },
 }
@@ -23,11 +52,8 @@ export default {
 <template>
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <font-awesome-icon
-        :icon="['fas', 'circle-xmark']"
-        class="closeIcon"
-        @click="$emit('close-modal')"
-      />
+      <font-awesome-icon :icon="['fas', 'circle-xmark']" 
+      class="closeIcon" @click="$emit('close-modal')" />
 
       <div class="header">
         <h2>Register</h2>
@@ -37,40 +63,19 @@ export default {
         <form @submit.prevent>
           <div class="username">
             <label>Username:</label>
-            <input
-              v-model.trim.lazy="username"
-              name="username"
-              type="text"
-              required
-              placeholder="Enter username"
-            />
+            <input v-model.trim.lazy="username" name="username" type="text" required placeholder="Enter username" />
           </div>
           <div class="password">
             <label>Password:</label>
-            <input
-              v-model.trim.lazy="password"
-              name="password"
-              type="password"
-              placeholder="Enter password"
-              required
-            />
+            <input v-model.trim.lazy="password" name="password" type="password" placeholder="Enter password" required />
           </div>
           <div class="confirmPassword">
             <label>Confirm Password:</label>
-            <input
-              v-model.trim.lazy="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              required
-              placeholder="Confirm Password"
-            />
+            <input v-model.trim.lazy="confirmPassword" name="confirmPassword" type="password" required
+              placeholder="Confirm Password" />
           </div>
-          <button
-            class="submitBtn"
-            type="submit"
-            @click="checkAndRegister(username, password, confirmPassword)"
-            v-if="username && password && confirmPassword"
-          >
+          <button class="submitBtn" type="submit" @click="checkAndRegister(username, password, confirmPassword)"
+            v-if="username && password && confirmPassword">
             Submit
           </button>
           <button class="submitBtn" type="submit" v-else>Submit</button>

@@ -1,3 +1,24 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script setup>
 import { ref } from 'vue'
 import { addCourse } from '~/api/data'

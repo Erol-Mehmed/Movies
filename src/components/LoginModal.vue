@@ -1,18 +1,45 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-import { login } from '~/api/users'
+import { ref } from 'vue';
+import { login } from '../../api/users'
 
 export default {
   setup(props, context) {
+
+    const username = ref(null);
+    const password = ref(null);
     const loggingIn = async (username, password) => {
       try {
         await login(username, password)
-        context.emit('close-modal')
+        context.emit('reRender')
       } catch (error) {
         alert('Username not found!')
       }
     }
     return {
       loggingIn,
+      username,
+      password
     }
   },
 }

@@ -20,8 +20,12 @@
 
 
 <script setup>
+import { ref } from 'vue';
 import Footer from '../components/Footer.vue';
 
+const currentUser = ref(JSON.parse(localStorage.getItem('user')));
+
+console.log(currentUser.value);
 
 </script>
 
@@ -45,7 +49,7 @@ import Footer from '../components/Footer.vue';
 
     </body>
 
-    <Footer />
+    <Footer @reRender="$emit('reRender')" />
 
   </div>
 
